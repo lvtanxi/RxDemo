@@ -1,0 +1,62 @@
+package lv.com.rxjavademo;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import java.io.Serializable;
+
+import rx.Observable;
+import rx.functions.Action1;
+
+/**
+ * User: 吕勇
+ * Date: 2016-07-05
+ * Time: 16:59
+ * Description:这个页面展示的操作符可用于组合多个Observables。
+ * startWith( ) — 在数据序列的开头增加一项数据
+ * merge( ) — 将多个Observable合并为一个
+ * mergeDelayError( ) — 合并多个Observables，让没有错误的Observable都完成后再发射错误通知
+ * zip( ) — 使用一个函数组合多个Observable发射的数据集合，然后再发射这个结果
+ * and( ), then( ), and when( ) — (rxjava-joins) 通过模式和计划组合多个Observables发射的数据集合
+ * combineLatest( ) — 当两个Observables中的任何一个发射了一个数据时，通过一个指定的函数组合每个Observable发射的最新数据（一共两个数据），然后发射这个函数的结果
+ * join( ) and groupJoin( ) — 无论何时，如果一个Observable发射了一个数据项，只要在另一个Observable发射的数据项定义的时间窗口内，就将两个Observable发射的数据合并发射
+ * switchOnNext( ) — 将一个发射Observables的Observable转换成另一个Observable，后者发射这些Observables最近发射的数据
+ */
+public class GroupAct extends AppCompatActivity {
+
+    public static void startGroupAct(Activity activity) {
+        activity.startActivity(new Intent(activity, GroupAct.class));
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_group);
+    }
+
+    public void startWith(View view) {
+        Observable.range(1,10).startWith(0)
+                .compose(RxSchedulers.<Integer>io_main())
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        DLog.d(integer);
+                    }
+                });
+    }
+
+    public void merge(View view) {
+        Observable.merge(Observable.range(0,2),Observable.just("lv","tanxi"))
+                .compose(RxSchedulers.<Serializable>io_main())
+                .subscribe(new Action1<Serializable>() {
+                    @Override
+                    public void call(Serializable serializable) {
+                        DLog.d(serializable);
+                    }
+                });
+    }
+}
