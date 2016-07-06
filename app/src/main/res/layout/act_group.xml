@@ -31,36 +31,36 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="from"
-            android:text="from"
+            android:onClick="mergeDelayError"
+            android:text="mergeDelayError"
             android:textAllCaps="false"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="interval"
-            android:text="interval"
+            android:onClick="zip"
+            android:text="zip"
             android:textAllCaps="false"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="delay"
-            android:text="delay"
+            android:onClick="switchOnNext"
+            android:text="switchOnNext"
             android:textAllCaps="false"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="timer"
-            android:text="timer"
+            android:onClick="join"
+            android:text="join or groupJoin"
             android:textAllCaps="false"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="repeat"
-            android:text="repeat"
+            android:onClick="combineLatest"
+            android:text="combineLatest"
             android:textAllCaps="false"/>
 
         <Button
