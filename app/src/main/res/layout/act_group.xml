@@ -66,8 +66,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="defer"
-            android:text="defer"
+            android:onClick="concat"
+            android:text="concat"
             android:textAllCaps="false"/>
 
         <Button

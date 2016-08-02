@@ -127,6 +127,13 @@ public class GroupAct extends AppCompatActivity {
                 DLog.d("Next:" + value);
             }
         });
+        Observable.concat(observable1,observable2)
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        DLog.d(integer);
+                    }
+                });
     }
 
     public void switchOnNext(View view) {
@@ -251,6 +258,18 @@ public class GroupAct extends AppCompatActivity {
                     @Override
                     public void call(String s) {
                         DLog.d(s);
+                    }
+                });
+    }
+
+    public void concat(View view) {
+        Observable<Integer> observable1 = Observable.just(10, 20, 30);
+        Observable<Integer> observable2 = Observable.just(4, 8, 12, 16);
+        Observable.concat(observable1,observable2)
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        DLog.d(integer);
                     }
                 });
     }
