@@ -38,4 +38,8 @@ public class ChooseAct extends AppCompatActivity{
     public void toGroup(View view) {
         GroupAct.startGroupAct(this);
     }
+
+    public void toRxView(View view) {
+        RxB.startRxB(this);
+    }
 }

@@ -42,6 +42,13 @@
             android:text="组合"
             android:textAllCaps="false"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toRxView"
+            android:text="RxView"
+            android:textAllCaps="false"/>
+
 
     </LinearLayout>
 
